@@ -1,0 +1,1600 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/13/2019 12:06:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PRASHANT-BHARGU"
+  DTS:CreatorName="THIRDI\prashant.bhargude"
+  DTS:DTSID="{7E6CB3AA-836F-4012-A439-6E95605A218A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3025.39"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PkgPivotProductData"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{29491214-1E07-4A1A-9528-A21D8909AF03}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ConnMgr]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{58AB8C6A-361A-45FB-9208-7D59E1E5288A}"
+      DTS:ObjectName="ConnMgr">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SQL Server\SSIS Training\SSIS Training\Output\YearWiseProdSale.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SALE_YEAR"
+              DTS:DTSID="{E0E94EED-1C5C-453D-AF80-F47CA7C413C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NOTEPAD_QTY"
+              DTS:DTSID="{82589C8B-60B3-43B9-939D-2F468B764B58}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PEN_QTY"
+              DTS:DTSID="{08A71483-A47B-475F-B4ED-B6267106A174}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SKETCHPAD_QTY"
+              DTS:DTSID="{E1AB5C32-061C-4FC0-A446-9EDA6E5C17B4}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FlatFileConnMgr]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FFF67C8B-6485-4FA5-8AF9-202F3F4E9172}"
+      DTS:ObjectName="FlatFileConnMgr">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SQL Server\SSIS Training\SSIS Training\Output\UnpivotedProductData.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRODUCT_NAME"
+              DTS:DTSID="{D202983E-A998-4811-B122-608695F3968E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="QUANTITY"
+              DTS:DTSID="{D42A4A27-5D59-4316-BE7D-B0A32F215FDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SALE_YEAR"
+              DTS:DTSID="{AC3E16F0-7F61-4110-85F9-AEA43D61FC14}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PRASHANT-BHARGU.AdventureWorks2014]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{ED2E4098-7ABC-42F0-A6F4-CFFDD8FE1D89}"
+      DTS:ObjectName="PRASHANT-BHARGU.AdventureWorks2014">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PRASHANT-BHARGU;Initial Catalog=AdventureWorks2014;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_PivotProdData"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{617CD6C4-4D55-414F-A4AF-F92DBBC75F2F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_PivotProdData"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_PivotProdData\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_PivotProdData\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ConnMgr]"
+                  connectionManagerRefId="Package.ConnectionManagers[ConnMgr]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].Columns[SALE_YEAR]"
+                      cachedDataType="i4"
+                      cachedName="SALE_YEAR"
+                      externalMetadataColumnId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SALE_YEAR]"
+                      lineageId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[SALE_YEAR]" />
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].Columns[NOTEPAD_QTY]"
+                      cachedDataType="i4"
+                      cachedName="NOTEPAD_QTY"
+                      externalMetadataColumnId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[NOTEPAD_QTY]"
+                      lineageId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[NOTEPAD_QTY]" />
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].Columns[PEN_QTY]"
+                      cachedDataType="i4"
+                      cachedName="PEN_QTY"
+                      externalMetadataColumnId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PEN_QTY]"
+                      lineageId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[PEN_QTY]" />
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].Columns[SKETCHPAD_QTY]"
+                      cachedDataType="i4"
+                      cachedName="SKETCHPAD_QTY"
+                      externalMetadataColumnId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SKETCHPAD_QTY]"
+                      lineageId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[SKETCHPAD_QTY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SALE_YEAR]"
+                      dataType="i4"
+                      name="SALE_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[NOTEPAD_QTY]"
+                      dataType="i4"
+                      name="NOTEPAD_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PEN_QTY]"
+                      dataType="i4"
+                      name="PEN_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SKETCHPAD_QTY]"
+                      dataType="i4"
+                      name="SKETCHPAD_QTY" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DFT_PivotProdData\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\DFT_PivotProdData\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_PivotProdData\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\DFT_PivotProdData\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_PivotProdData\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\DFT_PivotProdData\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_PivotProdData\PivotProdName"
+              componentClassID="Microsoft.Pivot"
+              contactInfo="Pivot;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Compacts an input data flow by pivoting it on a column value, making it less normalized. The input data should be sorted by the pivot column because a pivot happens each time data in the pivot column changes. Note: duplicate rows will cause this transformation to fail."
+              name="PivotProdName"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Causes the Pivot Transform to ignore rows containing unrecognized values in the Pivot Key column and to report the complete list of unmatched values at the end of DataFlow execution. Useful for collecting a list of values from input rows that can be used to automatically generate output columns."
+                  name="PassThroughUnmatchedPivotKeys">true</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT_PivotProdData\PivotProdName.Inputs[Pivot Default Input]"
+                  hasSideEffects="true"
+                  name="Pivot Default Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\PivotProdName.Inputs[Pivot Default Input].Columns[PRODUCT_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="PRODUCT_NAME"
+                      lineageId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[PRODUCT_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\PivotProdName.Inputs[Pivot Default Input].Columns[SALE_YEAR_Sort]"
+                      cachedDataType="i4"
+                      cachedName="SALE_YEAR_Sort"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[SALE_YEAR_Sort]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\PivotProdName.Inputs[Pivot Default Input].Columns[QTY]"
+                      cachedDataType="i4"
+                      cachedName="QTY"
+                      lineageId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[QTY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output]"
+                  name="Pivot Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[SALE_YEAR]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[SALE_YEAR]"
+                      name="SALE_YEAR">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[SALE_YEAR_Sort]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[NOTEPAD_QTY]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[NOTEPAD_QTY]"
+                      name="NOTEPAD_QTY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[QTY]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">NOTEPAD</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[PEN_QTY]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[PEN_QTY]"
+                      name="PEN_QTY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[QTY]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">PEN</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[SKETCHPAD_QTY]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output].Columns[SKETCHPAD_QTY]"
+                      name="SKETCHPAD_QTY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[QTY]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">SKETCHPAD</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Pivot Error Output"
+                  synchronousInputId="Package\DFT_PivotProdData\PivotProdName.Inputs[Pivot Default Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_PivotProdData\SortSaleYr"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="SortSaleYr"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT_PivotProdData\SortSaleYr.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\SortSaleYr.Inputs[Sort Input].Columns[PRODUCT_ID]"
+                      cachedDataType="i4"
+                      cachedName="PRODUCT_ID"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\SortSaleYr.Inputs[Sort Input].Columns[PRODUCT_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="PRODUCT_NAME"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[PRODUCT_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\SortSaleYr.Inputs[Sort Input].Columns[SALE_YEAR]"
+                      cachedDataType="i4"
+                      cachedName="SALE_YEAR"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[SALE_YEAR]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_PivotProdData\SortSaleYr.Inputs[Sort Input].Columns[QTY]"
+                      cachedDataType="i4"
+                      cachedName="QTY"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[QTY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[PRODUCT_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[PRODUCT_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[PRODUCT_NAME]"
+                      name="PRODUCT_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[PRODUCT_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[SALE_YEAR_Sort]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[SALE_YEAR_Sort]"
+                      name="SALE_YEAR_Sort"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[SALE_YEAR]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[QTY]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output].Columns[QTY]"
+                      name="QTY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[QTY]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_PivotProdData\SrcProdData"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SrcProdData"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[PRODUCT]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_PivotProdData\SrcProdData.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PRASHANT-BHARGU.AdventureWorks2014]"
+                  connectionManagerRefId="Package.ConnectionManagers[PRASHANT-BHARGU.AdventureWorks2014]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_ID]"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[PRODUCT_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_NAME]"
+                      length="20"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[PRODUCT_NAME]"
+                      name="PRODUCT_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[SALE_YEAR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].ExternalColumns[SALE_YEAR]"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[SALE_YEAR]"
+                      name="SALE_YEAR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[QTY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].ExternalColumns[QTY]"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].Columns[QTY]"
+                      name="QTY"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_ID]"
+                      dataType="i4"
+                      name="PRODUCT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="PRODUCT_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].ExternalColumns[SALE_YEAR]"
+                      dataType="i4"
+                      name="SALE_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output].ExternalColumns[QTY]"
+                      dataType="i4"
+                      name="QTY" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[PRODUCT_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID" />
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[PRODUCT_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[PRODUCT_NAME]"
+                      name="PRODUCT_NAME" />
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[SALE_YEAR]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[SALE_YEAR]"
+                      name="SALE_YEAR" />
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[QTY]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[QTY]"
+                      name="QTY" />
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_PivotProdData.Paths[Multicast Output 2]"
+              endId="Package\DFT_PivotProdData\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Multicast Output 2"
+              startId="Package\DFT_PivotProdData\Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\DFT_PivotProdData.Paths[OLE DB Source Output]"
+              endId="Package\DFT_PivotProdData\SortSaleYr.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_PivotProdData\SrcProdData.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT_PivotProdData.Paths[Pivot Default Output]"
+              endId="Package\DFT_PivotProdData\Multicast.Inputs[Multicast Input 1]"
+              name="Pivot Default Output"
+              startId="Package\DFT_PivotProdData\PivotProdName.Outputs[Pivot Default Output]" />
+            <path
+              refId="Package\DFT_PivotProdData.Paths[Sort Output]"
+              endId="Package\DFT_PivotProdData\PivotProdName.Inputs[Pivot Default Input]"
+              name="Sort Output"
+              startId="Package\DFT_PivotProdData\SortSaleYr.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT_UnpivotProdData"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7B106B43-73BB-45D2-A067-463D81F2F815}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_UnpivotProdData"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_UnpivotProdData\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_UnpivotProdData\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FlatFileConnMgr]"
+                  connectionManagerRefId="Package.ConnectionManagers[FlatFileConnMgr]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input].Columns[PRODUCT_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PRODUCT_NAME"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PRODUCT_NAME]"
+                      lineageId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output].Columns[PRODUCT_NAME]" />
+                    <inputColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input].Columns[QUANTITY]"
+                      cachedDataType="i4"
+                      cachedName="QUANTITY"
+                      externalMetadataColumnId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[QUANTITY]"
+                      lineageId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output].Columns[QUANTITY]" />
+                    <inputColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input].Columns[SALE_YEAR]"
+                      cachedDataType="i4"
+                      cachedName="SALE_YEAR"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SALE_YEAR]"
+                      lineageId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output].Columns[SALE_YEAR]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PRODUCT_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="PRODUCT_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[QUANTITY]"
+                      dataType="i4"
+                      name="QUANTITY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SALE_YEAR]"
+                      dataType="i4"
+                      name="SALE_YEAR" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DFT_UnpivotProdData\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_UnpivotProdData\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ConnMgr]"
+                  connectionManagerRefId="Package.ConnectionManagers[ConnMgr]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[SALE_YEAR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SALE_YEAR]"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[SALE_YEAR]"
+                      name="SALE_YEAR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[NOTEPAD_QTY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NOTEPAD_QTY]"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[NOTEPAD_QTY]"
+                      name="NOTEPAD_QTY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[PEN_QTY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PEN_QTY]"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[PEN_QTY]"
+                      name="PEN_QTY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[SKETCHPAD_QTY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SKETCHPAD_QTY]"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[SKETCHPAD_QTY]"
+                      name="SKETCHPAD_QTY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SALE_YEAR]"
+                      dataType="i4"
+                      name="SALE_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NOTEPAD_QTY]"
+                      dataType="i4"
+                      name="NOTEPAD_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PEN_QTY]"
+                      dataType="i4"
+                      name="PEN_QTY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SKETCHPAD_QTY]"
+                      dataType="i4"
+                      name="SKETCHPAD_QTY" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_UnpivotProdData\SortOnYearandProdName"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="SortOnYearandProdName"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Inputs[Sort Input].Columns[PRODUCT_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PRODUCT_NAME"
+                      lineageId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[PRODUCT_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Inputs[Sort Input].Columns[QUANTITY]"
+                      cachedDataType="i4"
+                      cachedName="QUANTITY"
+                      lineageId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[QUANTITY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Inputs[Sort Input].Columns[SALE_YEAR]"
+                      cachedDataType="i4"
+                      cachedName="SALE_YEAR"
+                      lineageId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[SALE_YEAR]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output].Columns[PRODUCT_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output].Columns[PRODUCT_NAME]"
+                      name="PRODUCT_NAME"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[PRODUCT_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output].Columns[QUANTITY]"
+                      dataType="i4"
+                      lineageId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output].Columns[QUANTITY]"
+                      name="QUANTITY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[QUANTITY]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output].Columns[SALE_YEAR]"
+                      dataType="i4"
+                      lineageId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output].Columns[SALE_YEAR]"
+                      name="SALE_YEAR"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[SALE_YEAR]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_UnpivotProdData\Unpivot"
+              componentClassID="Microsoft.UnPivot"
+              contactInfo="Unpivot;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Expands an un-normalized data flow into a more normalized version. Values from multiple columns of a single record expand to multiple records in a single column. For example, expand a table that lists athletic scores with a column for each game to more records and a single score column."
+              name="Unpivot">
+              <inputs>
+                <input
+                  refId="Package\DFT_UnpivotProdData\Unpivot.Inputs[Unpivot Input]"
+                  hasSideEffects="true"
+                  name="Unpivot Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_UnpivotProdData\Unpivot.Inputs[Unpivot Input].Columns[NOTEPAD_QTY]"
+                      cachedDataType="i4"
+                      cachedName="NOTEPAD_QTY"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[NOTEPAD_QTY]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[QUANTITY]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">NOTEPAD</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_UnpivotProdData\Unpivot.Inputs[Unpivot Input].Columns[PEN_QTY]"
+                      cachedDataType="i4"
+                      cachedName="PEN_QTY"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[PEN_QTY]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[QUANTITY]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">PEN</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_UnpivotProdData\Unpivot.Inputs[Unpivot Input].Columns[SKETCHPAD_QTY]"
+                      cachedDataType="i4"
+                      cachedName="SKETCHPAD_QTY"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[SKETCHPAD_QTY]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[QUANTITY]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">SKETCHPAD</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_UnpivotProdData\Unpivot.Inputs[Unpivot Input].Columns[SALE_YEAR]"
+                      cachedDataType="i4"
+                      cachedName="SALE_YEAR"
+                      lineageId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output].Columns[SALE_YEAR]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column’s value is not used in output rows."
+                          name="DestinationColumn">#{Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[SALE_YEAR]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output]"
+                  name="Unpivot Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[PRODUCT_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[PRODUCT_NAME]"
+                      name="PRODUCT_NAME">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">true</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[QUANTITY]"
+                      dataType="i4"
+                      lineageId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[QUANTITY]"
+                      name="QUANTITY">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[SALE_YEAR]"
+                      dataType="i4"
+                      lineageId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output].Columns[SALE_YEAR]"
+                      name="SALE_YEAR">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_UnpivotProdData.Paths[Flat File Source Output]"
+              endId="Package\DFT_UnpivotProdData\Unpivot.Inputs[Unpivot Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT_UnpivotProdData\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFT_UnpivotProdData.Paths[Sort Output]"
+              endId="Package\DFT_UnpivotProdData\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Sort Output"
+              startId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Outputs[Sort Output]" />
+            <path
+              refId="Package\DFT_UnpivotProdData.Paths[Unpivot Output]"
+              endId="Package\DFT_UnpivotProdData\SortOnYearandProdName.Inputs[Sort Input]"
+              name="Unpivot Output"
+              startId="Package\DFT_UnpivotProdData\Unpivot.Outputs[Unpivot Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AC418636-1101-44A9-BCA1-C98B9BE595F6}"
+      DTS:From="Package\DFT_PivotProdData"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_UnpivotProdData" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\DFT_PivotProdData"
+          TopLeft="277,96" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\DFT_UnpivotProdData"
+          TopLeft="272,201" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="363.75,138">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_PivotProdData">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\DFT_PivotProdData\Multicast"
+          TopLeft="272,262" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\DFT_PivotProdData\SrcProdData"
+          TopLeft="264,9" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT_PivotProdData\SortSaleYr"
+          TopLeft="266,90" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\DFT_PivotProdData\Flat File Destination"
+          TopLeft="262,357" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\DFT_PivotProdData\PivotProdName"
+          TopLeft="266,173" />
+        <EdgeLayout
+          Id="Package\DFT_PivotProdData.Paths[OLE DB Source Output]"
+          TopLeft="340.5,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_PivotProdData.Paths[Multicast Output 2]"
+          TopLeft="351,304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_PivotProdData.Paths[Sort Output]"
+          TopLeft="343.25,132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,8.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_PivotProdData.Paths[Pivot Default Output]"
+          TopLeft="342.5,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,47"
+              Start="0,0"
+              End="10.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="6.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,23.5"
+                    Point2="10.5,23.5"
+                    Point3="10.5,27.5" />
+                  <mssgle:LineSegment
+                    End="10.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-2.75,28.5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_PivotProdData\SrcProdData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT_UnpivotProdData">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="204,44"
+          Id="Package\DFT_UnpivotProdData\Flat File Source"
+          TopLeft="267,56" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\DFT_UnpivotProdData\Unpivot"
+          TopLeft="266,154" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\DFT_UnpivotProdData\SortOnYearandProdName"
+          TopLeft="270,244" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT_UnpivotProdData\Flat File Destination"
+          TopLeft="264,345" />
+        <EdgeLayout
+          Id="Package\DFT_UnpivotProdData.Paths[Unpivot Output]"
+          TopLeft="371.75,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_UnpivotProdData.Paths[Sort Output]"
+          TopLeft="373.5,286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_UnpivotProdData.Paths[Flat File Source Output]"
+          TopLeft="369.25,100">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
